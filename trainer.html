@@ -18,12 +18,9 @@
           <span class="quiz-progress-label">第 <span id="question-current">01</span> <span class="question-total-divider">/</span> <span id="question-total">83</span> 题</span>
           <button id="open-catalog" class="catalog-open" type="button">题目目录</button>
           <div class="more-menu-wrap">
-            <button id="more-menu-toggle" class="more-menu-toggle" type="button" aria-label="更多操作" aria-haspopup="menu" aria-expanded="false" aria-controls="more-menu">
+            <button id="more-menu-toggle" class="more-menu-toggle" type="button" aria-label="更多操作" aria-haspopup="dialog" aria-expanded="false" aria-controls="more-menu">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
             </button>
-            <div id="more-menu" class="more-menu" role="menu" hidden>
-              <button id="toggle-answer" class="more-menu-item" type="button" role="menuitem" aria-pressed="false">隐藏英文答案</button>
-            </div>
           </div>
         </div>
       </div>
@@ -61,6 +58,11 @@
         </header>
         <div class="catalog-legend" aria-label="答题状态"><span><i class="legend-dot is-unanswered"></i>未答</span><span><i class="legend-dot is-draft"></i>草稿</span><span><i class="legend-dot is-incorrect"></i>错误</span><span><i class="legend-dot is-correct"></i>正确</span></div>
         <nav id="catalog-grid" class="catalog-grid" aria-label="题目列表"></nav>
+      </div>
+    </dialog>
+    <dialog id="more-menu" class="more-menu-dialog" aria-label="更多操作">
+      <div class="more-menu-panel">
+        <button id="toggle-answer" class="more-menu-item" type="button" aria-pressed="false">隐藏英文答案</button>
       </div>
     </dialog>
     <aside id="word-card" class="word-card" role="dialog" aria-labelledby="word-card-title" aria-live="polite" hidden>

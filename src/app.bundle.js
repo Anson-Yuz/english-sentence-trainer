@@ -337,7 +337,7 @@ function closeWordCard() {
 
 function closeMoreMenu({ restoreFocus = false } = {}) {
   if (!moreMenu) return;
-  moreMenu.hidden = true;
+  if (moreMenu.open) moreMenu.close();
   moreMenuToggle.setAttribute('aria-expanded', 'false');
   if (restoreFocus) moreMenuToggle.focus();
 }
@@ -605,9 +605,12 @@ questionCatalog.addEventListener('click', (event) => {
   if (event.target === questionCatalog) questionCatalog.close();
 });
 moreMenuToggle.addEventListener('click', () => {
-  const open = moreMenu.hidden;
-  moreMenu.hidden = !open;
-  moreMenuToggle.setAttribute('aria-expanded', String(open));
+  moreMenu.showModal();
+  moreMenuToggle.setAttribute('aria-expanded', 'true');
+});
+moreMenu.addEventListener('close', () => moreMenuToggle.setAttribute('aria-expanded', 'false'));
+moreMenu.addEventListener('click', (event) => {
+  if (event.target === moreMenu) closeMoreMenu();
 });
 referenceText.addEventListener('pointerdown', startWordPress);
 document.addEventListener('pointermove', moveWordPress);
@@ -634,11 +637,9 @@ referenceText.addEventListener('keydown', (event) => {
 document.querySelector('#close-word-card').addEventListener('click', closeWordCard);
 document.addEventListener('click', (event) => {
   if (!wordCard.hidden && !wordCard.contains(event.target) && !referenceText.contains(event.target)) closeWordCard();
-  if (!moreMenu.hidden && !event.target.closest('.more-menu-wrap')) closeMoreMenu();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !wordCard.hidden) closeWordCard();
-  if (event.key === 'Escape' && !moreMenu.hidden) closeMoreMenu({ restoreFocus: true });
 });
 window.visualViewport?.addEventListener('resize', () => positionWordCard(wordCardAnchor));
 window.visualViewport?.addEventListener('scroll', () => positionWordCard(wordCardAnchor));

@@ -58,9 +58,10 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .more-menu-toggle { display: grid; width: 40px; height: 40px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #71838a; cursor: pointer; touch-action: manipulation; }
 .more-menu-toggle:hover, .more-menu-toggle[aria-expanded="true"] { background: #eaf0f2; color: #405c68; }
 .more-menu-toggle svg { width: 20px; height: 20px; fill: currentColor; }
-.more-menu { position: absolute; z-index: 15; top: calc(100% + 8px); right: 0; width: max-content; min-width: 190px; padding: 6px; border: 1px solid #dce5e7; border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgb(17 35 43 / 14%); }
-.more-menu[hidden] { display: none; }
-.more-menu-item { display: block; width: 100%; min-height: 44px; padding: 0 12px; border: 0; border-radius: 8px; background: transparent; color: var(--ink); font-size: 14px; text-align: left; cursor: pointer; }
+.more-menu-dialog { width: min(360px, calc(100vw - 28px)); max-width: none; padding: 0; overflow: visible; border: 1px solid #dce5e7; border-radius: 16px; background: #fbfcfc; color: var(--ink); box-shadow: 0 18px 48px rgb(17 35 43 / 16%); }
+.more-menu-dialog::backdrop { background: rgb(23 35 40 / 24%); backdrop-filter: blur(1px); }
+.more-menu-panel { padding: 8px; }
+.more-menu-item { display: block; width: 100%; min-height: 48px; padding: 0 12px; border: 0; border-radius: 10px; background: transparent; color: var(--ink); font-size: 14px; text-align: left; cursor: pointer; }
 .more-menu-item:hover { background: #f0f4f5; }
 .catalog-dialog { width: min(540px, calc(100vw - 32px)); max-width: none; max-height: min(76vh, 680px); padding: 0; overflow: visible; border: 0; border-radius: 20px; background: transparent; color: var(--ink); }
 .catalog-dialog::backdrop { background: rgb(23 35 40 / 38%); backdrop-filter: blur(2px); }
@@ -156,6 +157,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .catalog-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
   .catalog-number { border-radius: 10px; font-size: 12px; }
   .word-card.is-mobile-sheet { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); left: 12px; width: auto; max-height: min(44vh, 360px); padding: 17px 18px max(18px, env(safe-area-inset-bottom)); border-radius: 18px; }
+  .more-menu-dialog { position: fixed; inset: auto 0 0; width: 100%; max-width: none; margin: 0; border: 0; border-radius: 20px 20px 0 0; }
+  .more-menu-panel { padding: 10px 16px max(16px, env(safe-area-inset-bottom)); }
 }
 
 @media (max-height: 700px) {
