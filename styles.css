@@ -78,8 +78,8 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .chinese-block { padding: 6px 0; }
 .chinese-sentence { margin: 0; color: var(--ink); font-size: clamp(24px, 5.6vw, 35px); font-weight: 600; line-height: 1.55; letter-spacing: .01em; overflow-wrap: anywhere; }
 .reference-block { display: flex; align-items: flex-start; gap: 18px; }
-.reference-text { flex: 1; min-width: 0; padding: 4px 0; border-radius: 5px; color: #34454e; font-size: clamp(18px, 4.4vw, 25px); line-height: 1.6; overflow-wrap: anywhere; cursor: pointer; }
-.dictionary-word { border-radius: 3px; -webkit-touch-callout: none; user-select: none; }
+.reference-text { flex: 1; min-width: 0; padding: 4px 0; border-radius: 5px; color: #34454e; font-size: clamp(18px, 4.4vw, 25px); line-height: 1.6; overflow-wrap: normal; word-break: normal; hyphens: none; cursor: pointer; }
+.dictionary-word { display: inline-block; border-radius: 3px; -webkit-touch-callout: none; user-select: none; }
 .dictionary-word:hover { background: rgb(53 107 128 / 8%); }
 .reference-text:focus-visible { outline: 2px solid #8fb2bf; outline-offset: 5px; }
 .reference-text.is-hidden { color: transparent; user-select: none; }
@@ -152,6 +152,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .catalog-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
   .catalog-number { border-radius: 10px; font-size: 12px; }
   .word-card.is-mobile-sheet { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); left: 12px; width: auto; max-height: min(44vh, 360px); padding: 17px 18px max(18px, env(safe-area-inset-bottom)); border-radius: 18px; }
+  .reference-block { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .reference-actions { grid-row: 1; justify-self: end; }
+  .reference-text { grid-row: 2; }
 }
 
 @media (max-height: 700px) {
