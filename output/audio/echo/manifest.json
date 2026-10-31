@@ -1,0 +1,583 @@
+[
+  {
+    "id": "LM-001",
+    "src": "output/audio/echo/LM-001.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-002",
+    "src": "output/audio/echo/LM-002.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-003",
+    "src": "output/audio/echo/LM-003.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-004",
+    "src": "output/audio/echo/LM-004.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-005",
+    "src": "output/audio/echo/LM-005.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-006",
+    "src": "output/audio/echo/LM-006.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-007",
+    "src": "output/audio/echo/LM-007.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-008",
+    "src": "output/audio/echo/LM-008.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-009",
+    "src": "output/audio/echo/LM-009.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-010",
+    "src": "output/audio/echo/LM-010.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-011",
+    "src": "output/audio/echo/LM-011.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-012",
+    "src": "output/audio/echo/LM-012.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-013",
+    "src": "output/audio/echo/LM-013.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-014",
+    "src": "output/audio/echo/LM-014.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-015",
+    "src": "output/audio/echo/LM-015.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-016",
+    "src": "output/audio/echo/LM-016.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-017",
+    "src": "output/audio/echo/LM-017.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-018",
+    "src": "output/audio/echo/LM-018.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-019",
+    "src": "output/audio/echo/LM-019.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-020",
+    "src": "output/audio/echo/LM-020.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-021",
+    "src": "output/audio/echo/LM-021.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-022",
+    "src": "output/audio/echo/LM-022.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-023",
+    "src": "output/audio/echo/LM-023.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-024",
+    "src": "output/audio/echo/LM-024.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-025",
+    "src": "output/audio/echo/LM-025.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-026",
+    "src": "output/audio/echo/LM-026.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-027",
+    "src": "output/audio/echo/LM-027.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-028",
+    "src": "output/audio/echo/LM-028.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-029",
+    "src": "output/audio/echo/LM-029.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-030",
+    "src": "output/audio/echo/LM-030.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-031",
+    "src": "output/audio/echo/LM-031.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-032",
+    "src": "output/audio/echo/LM-032.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-033",
+    "src": "output/audio/echo/LM-033.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-034",
+    "src": "output/audio/echo/LM-034.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-035",
+    "src": "output/audio/echo/LM-035.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-036",
+    "src": "output/audio/echo/LM-036.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-037",
+    "src": "output/audio/echo/LM-037.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-038",
+    "src": "output/audio/echo/LM-038.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-039",
+    "src": "output/audio/echo/LM-039.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-040",
+    "src": "output/audio/echo/LM-040.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-041",
+    "src": "output/audio/echo/LM-041.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-042",
+    "src": "output/audio/echo/LM-042.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-043",
+    "src": "output/audio/echo/LM-043.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-044",
+    "src": "output/audio/echo/LM-044.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-045",
+    "src": "output/audio/echo/LM-045.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-046",
+    "src": "output/audio/echo/LM-046.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-047",
+    "src": "output/audio/echo/LM-047.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-048",
+    "src": "output/audio/echo/LM-048.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-049",
+    "src": "output/audio/echo/LM-049.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-050",
+    "src": "output/audio/echo/LM-050.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-051",
+    "src": "output/audio/echo/LM-051.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-052",
+    "src": "output/audio/echo/LM-052.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-053",
+    "src": "output/audio/echo/LM-053.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-054",
+    "src": "output/audio/echo/LM-054.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-055",
+    "src": "output/audio/echo/LM-055.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-056",
+    "src": "output/audio/echo/LM-056.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-057",
+    "src": "output/audio/echo/LM-057.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-058",
+    "src": "output/audio/echo/LM-058.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-059",
+    "src": "output/audio/echo/LM-059.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-060",
+    "src": "output/audio/echo/LM-060.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-061",
+    "src": "output/audio/echo/LM-061.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-062",
+    "src": "output/audio/echo/LM-062.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-063",
+    "src": "output/audio/echo/LM-063.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-064",
+    "src": "output/audio/echo/LM-064.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-065",
+    "src": "output/audio/echo/LM-065.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-066",
+    "src": "output/audio/echo/LM-066.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-067",
+    "src": "output/audio/echo/LM-067.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-068",
+    "src": "output/audio/echo/LM-068.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-069",
+    "src": "output/audio/echo/LM-069.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-070",
+    "src": "output/audio/echo/LM-070.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-071",
+    "src": "output/audio/echo/LM-071.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-072",
+    "src": "output/audio/echo/LM-072.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-073",
+    "src": "output/audio/echo/LM-073.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-074",
+    "src": "output/audio/echo/LM-074.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-075",
+    "src": "output/audio/echo/LM-075.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-076",
+    "src": "output/audio/echo/LM-076.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-077",
+    "src": "output/audio/echo/LM-077.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-078",
+    "src": "output/audio/echo/LM-078.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-079",
+    "src": "output/audio/echo/LM-079.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-080",
+    "src": "output/audio/echo/LM-080.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-081",
+    "src": "output/audio/echo/LM-081.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-082",
+    "src": "output/audio/echo/LM-082.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  },
+  {
+    "id": "LM-083",
+    "src": "output/audio/echo/LM-083.wav",
+    "voice": "Kokoro Echo",
+    "voiceId": "am_echo",
+    "lang": "en-US"
+  }
+]
