@@ -17,6 +17,14 @@
           </a>
           <span class="quiz-progress-label">第 <span id="question-current">01</span> <span class="question-total-divider">/</span> <span id="question-total">83</span> 题</span>
           <button id="open-catalog" class="catalog-open" type="button">题目目录</button>
+          <div class="more-menu-wrap">
+            <button id="more-menu-toggle" class="more-menu-toggle" type="button" aria-label="更多操作" aria-haspopup="menu" aria-expanded="false" aria-controls="more-menu">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+            </button>
+            <div id="more-menu" class="more-menu" role="menu" hidden>
+              <button id="toggle-answer" class="more-menu-item" type="button" role="menuitem" aria-pressed="false">隐藏英文答案</button>
+            </div>
+          </div>
         </div>
       </div>
       <section class="sentence-block chinese-block" aria-label="中文例句">
@@ -25,14 +33,6 @@
 
       <section id="reference-block" class="sentence-block reference-block" aria-label="英文参考答案">
         <div id="reference-text" class="reference-text" role="button" tabindex="0" aria-label="轻点朗读英文句子，长按单词查看释义"></div>
-        <div class="reference-actions">
-          <button id="play-button" class="icon-button" type="button" aria-label="播放英文">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>
-          </button>
-          <button id="toggle-answer" class="icon-button" type="button" aria-label="隐藏英文答案" aria-pressed="false">
-            <svg id="eye-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.6"/></svg>
-          </button>
-        </div>
       </section>
 
       <section class="answer-block" aria-label="英文答题框">

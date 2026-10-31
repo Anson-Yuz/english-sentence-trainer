@@ -142,6 +142,8 @@ const quiz = document.querySelector('#quiz');
 const questionCurrent = document.querySelector('#question-current');
 const questionTotal = document.querySelector('#question-total');
 const catalogButton = document.querySelector('#open-catalog');
+const moreMenuToggle = document.querySelector('#more-menu-toggle');
+const moreMenu = document.querySelector('#more-menu');
 const questionCatalog = document.querySelector('#question-catalog');
 const catalogGrid = document.querySelector('#catalog-grid');
 const chinese = document.querySelector('#chinese-sentence');
@@ -152,15 +154,11 @@ const answerRender = document.querySelector('#answer-render');
 const toolbar = document.querySelector('#keyboard-toolbar');
 const message = document.querySelector('#live-message');
 const submitButton = document.querySelector('#submit-answer');
-const playButton = document.querySelector('#play-button');
 const toggleButton = document.querySelector('#toggle-answer');
-const eyeIcon = document.querySelector('#eye-icon');
 const wordCard = document.querySelector('#word-card');
 const wordCardTitle = document.querySelector('#word-card-title');
 const wordCardPhonetic = document.querySelector('#word-card-phonetic');
 const wordCardSenses = document.querySelector('#word-card-senses');
-const eyeOpenMarkup = '<path d="M2.5 12s3.4-6 9.5-6 9.5 6 9.5 6-3.4 6-9.5 6-9.5-6-9.5-6Z"/><circle cx="12" cy="12" r="2.6"/>';
-const eyeClosedMarkup = '<path d="M3 3l18 18M10.6 6.2A10.7 10.7 0 0 1 12 6c6.1 0 9.5 6 9.5 6a14.3 14.3 0 0 1-3 3.5M6.1 6.6C3.7 8.3 2.5 12 2.5 12s3.4 6 9.5 6c1.1 0 2.1-.2 3-.5"/><path d="M9.9 9.9a3 3 0 0 0 4.2 4.2"/>';
 
 let questions = [];
 let session;
@@ -235,6 +233,7 @@ function renderQuestion({ focusInput = false } = {}) {
   const question = currentQuestion();
   if (!question) return;
   closeWordCard();
+  closeMoreMenu();
   const progress = session.index + 1;
   questionCurrent.textContent = String(progress).padStart(2, '0');
   questionTotal.textContent = String(questions.length).padStart(2, '0');
@@ -243,9 +242,8 @@ function renderQuestion({ focusInput = false } = {}) {
   chinese.textContent = question.chinese;
   renderReferenceSentence(question.english);
   referenceText.classList.toggle('is-hidden', Boolean(hiddenById[question.id]));
+  toggleButton.textContent = hiddenById[question.id] ? '显示英文答案' : '隐藏英文答案';
   toggleButton.setAttribute('aria-pressed', String(Boolean(hiddenById[question.id])));
-  toggleButton.setAttribute('aria-label', hiddenById[question.id] ? '显示英文答案' : '隐藏英文答案');
-  eyeIcon.innerHTML = hiddenById[question.id] ? eyeClosedMarkup : eyeOpenMarkup;
   answerInput.value = item.answer;
   renderAnswer(item);
   resizeAnswer();
@@ -335,6 +333,13 @@ function closeWordCard() {
   if (!wordCard) return;
   wordCard.hidden = true;
   wordCardAnchor = null;
+}
+
+function closeMoreMenu({ restoreFocus = false } = {}) {
+  if (!moreMenu) return;
+  moreMenu.hidden = true;
+  moreMenuToggle.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) moreMenuToggle.focus();
 }
 
 function cancelWordPress({ closeCard = false } = {}) {
@@ -599,7 +604,11 @@ document.querySelector('#close-catalog').addEventListener('click', () => questio
 questionCatalog.addEventListener('click', (event) => {
   if (event.target === questionCatalog) questionCatalog.close();
 });
-playButton.addEventListener('click', speakCurrent);
+moreMenuToggle.addEventListener('click', () => {
+  const open = moreMenu.hidden;
+  moreMenu.hidden = !open;
+  moreMenuToggle.setAttribute('aria-expanded', String(open));
+});
 referenceText.addEventListener('pointerdown', startWordPress);
 document.addEventListener('pointermove', moveWordPress);
 document.addEventListener('pointerup', endWordPress);
@@ -625,14 +634,17 @@ referenceText.addEventListener('keydown', (event) => {
 document.querySelector('#close-word-card').addEventListener('click', closeWordCard);
 document.addEventListener('click', (event) => {
   if (!wordCard.hidden && !wordCard.contains(event.target) && !referenceText.contains(event.target)) closeWordCard();
+  if (!moreMenu.hidden && !event.target.closest('.more-menu-wrap')) closeMoreMenu();
 });
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape' && !wordCard.hidden) closeWordCard();
+  if (event.key === 'Escape' && !moreMenu.hidden) closeMoreMenu({ restoreFocus: true });
 });
 window.visualViewport?.addEventListener('resize', () => positionWordCard(wordCardAnchor));
 window.visualViewport?.addEventListener('scroll', () => positionWordCard(wordCardAnchor));
 window.addEventListener('resize', () => positionWordCard(wordCardAnchor));
 toggleButton.addEventListener('click', () => {
+  closeMoreMenu();
   closeWordCard();
   const id = currentQuestion().id;
   hiddenById[id] = !hiddenById[id];

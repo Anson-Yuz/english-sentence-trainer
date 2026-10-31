@@ -46,7 +46,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   touch-action: pan-y;
 }
 .quiz-progress { width: 100%; }
-.quiz-progress-row { display: grid; grid-template-columns: 40px 1fr auto; align-items: center; gap: 12px; margin-bottom: 0; font-size: 13px; }
+.quiz-progress-row { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto 40px; align-items: center; gap: 10px; margin-bottom: 0; font-size: 13px; }
 .home-icon-link { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: #405c68; text-decoration: none; }
 .home-icon-link:hover { background: #eaf0f2; }
 .home-icon-link svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
@@ -54,6 +54,14 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .question-total-divider { margin: 0 4px; color: #9aa6aa; font-weight: 400; }
 .catalog-open { min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: #405c68; font-size: 13px; cursor: pointer; touch-action: manipulation; }
 .catalog-open:hover { background: #eaf0f2; }
+.more-menu-wrap { position: relative; }
+.more-menu-toggle { display: grid; width: 40px; height: 40px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #71838a; cursor: pointer; touch-action: manipulation; }
+.more-menu-toggle:hover, .more-menu-toggle[aria-expanded="true"] { background: #eaf0f2; color: #405c68; }
+.more-menu-toggle svg { width: 20px; height: 20px; fill: currentColor; }
+.more-menu { position: absolute; z-index: 15; top: calc(100% + 8px); right: 0; width: max-content; min-width: 190px; padding: 6px; border: 1px solid #dce5e7; border-radius: 12px; background: #fff; box-shadow: 0 12px 30px rgb(17 35 43 / 14%); }
+.more-menu[hidden] { display: none; }
+.more-menu-item { display: block; width: 100%; min-height: 44px; padding: 0 12px; border: 0; border-radius: 8px; background: transparent; color: var(--ink); font-size: 14px; text-align: left; cursor: pointer; }
+.more-menu-item:hover { background: #f0f4f5; }
 .catalog-dialog { width: min(540px, calc(100vw - 32px)); max-width: none; max-height: min(76vh, 680px); padding: 0; overflow: visible; border: 0; border-radius: 20px; background: transparent; color: var(--ink); }
 .catalog-dialog::backdrop { background: rgb(23 35 40 / 38%); backdrop-filter: blur(2px); }
 .catalog-panel { max-height: min(76vh, 680px); overflow: auto; padding: 24px; border: 1px solid #e0e7e9; border-radius: 20px; background: #fbfcfc; box-shadow: 0 24px 70px rgb(17 35 43 / 18%); }
@@ -77,7 +85,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .sentence-block { position: relative; width: 100%; }
 .chinese-block { padding: 6px 0; }
 .chinese-sentence { margin: 0; color: var(--ink); font-size: clamp(24px, 5.6vw, 35px); font-weight: 600; line-height: 1.55; letter-spacing: .01em; overflow-wrap: anywhere; }
-.reference-block { display: flex; align-items: flex-start; gap: 18px; }
+.reference-block { display: block; }
 .reference-text { flex: 1; min-width: 0; padding: 4px 0; border-radius: 5px; color: #34454e; font-size: clamp(18px, 4.4vw, 25px); line-height: 1.6; overflow-wrap: normal; word-break: normal; hyphens: none; cursor: pointer; }
 .dictionary-word { display: inline-block; border-radius: 3px; -webkit-touch-callout: none; user-select: none; }
 .dictionary-word:hover { background: rgb(53 107 128 / 8%); }
@@ -94,10 +102,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .word-card-pos { padding: 2px 6px; border-radius: 5px; background: #eff4f5; color: #496671; font-size: 11px; white-space: nowrap; }
 .word-card-meaning { color: #354851; }
 .word-card-empty { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
-.reference-actions { display: flex; flex: 0 0 auto; gap: 6px; }
-.icon-button { display: grid; width: 44px; height: 44px; place-items: center; border: 0; border-radius: 50%; background: transparent; color: #53666d; cursor: pointer; touch-action: manipulation; }
-.icon-button:hover { background: #e7edef; }
-.icon-button svg { width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .answer-block { width: 100%; }
 .answer-pad { position: relative; min-height: 182px; border: 1px solid #cddadd; border-radius: 14px; background: var(--paper); }
 .answer-render, .answer-input { width: 100%; min-height: 180px; margin: 0; padding: 18px 19px; border: 0; border-radius: inherit; font-size: 18px; font-weight: 400; line-height: 1.65; letter-spacing: 0; white-space: pre-wrap; overflow-wrap: anywhere; tab-size: 2; }
@@ -143,7 +147,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 @media (max-width: 520px) {
   .home-body, .settings-body { padding: 20px; }
   .home-card, .settings-card { padding: 20px 8px; }
-  .quiz-shell { min-height: 100svh; gap: 22px; padding-top: max(22px, env(safe-area-inset-top)); padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .quiz-shell { min-height: 100svh; justify-content: flex-start; gap: 16px; padding-top: max(16px, env(safe-area-inset-top)); padding-bottom: max(24px, env(safe-area-inset-bottom)); }
   .keyboard-toolbar { height: calc(84px + env(safe-area-inset-bottom)); padding: 0 12px env(safe-area-inset-bottom); background: #f4f7f8; border-top-color: var(--line); }
   .toolbar-button { width: 58px; height: 58px; }
   .toolbar-button svg { width: 36px; height: 36px; }
@@ -152,9 +156,6 @@ button, a { -webkit-tap-highlight-color: transparent; }
   .catalog-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 7px; }
   .catalog-number { border-radius: 10px; font-size: 12px; }
   .word-card.is-mobile-sheet { right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); left: 12px; width: auto; max-height: min(44vh, 360px); padding: 17px 18px max(18px, env(safe-area-inset-bottom)); border-radius: 18px; }
-  .reference-block { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
-  .reference-actions { grid-row: 1; justify-self: end; }
-  .reference-text { grid-row: 2; }
 }
 
 @media (max-height: 700px) {
