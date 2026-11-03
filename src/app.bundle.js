@@ -499,7 +499,7 @@ function updateToolbarPosition() {
   const viewport = window.visualViewport;
   if (!viewport || toolbar.hidden) return;
   const bottomGap = Math.max(0, window.innerHeight - viewport.height - viewport.offsetTop);
-  toolbar.style.bottom = `${bottomGap}px`;
+  toolbar.style.bottom = `${bottomGap + 12}px`;
 }
 
 function speechSettings() {
@@ -646,13 +646,9 @@ answerInput.addEventListener('keydown', (event) => {
   if (event.key === 'Enter') event.stopPropagation();
 });
 
-document.querySelector('#exit-input').addEventListener('click', () => {
-  setEditing(false);
-  answerInput.blur();
-});
 toolbar.addEventListener('pointerdown', (event) => {
   const button = event.target.closest('button');
-  if (button && button.id !== 'exit-input') event.preventDefault();
+  if (button) event.preventDefault();
 });
 submitButton.addEventListener('click', submitCurrent);
 catalogButton.addEventListener('click', () => {
