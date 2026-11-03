@@ -121,6 +121,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
   display: grid; width: 56px; height: 56px; place-items: center;
 }
 .keyboard-toolbar[hidden] { display: none; }
+.keyboard-toolbar #exit-input { display: none; }
 .toolbar-button { display: grid; width: 56px; height: 56px; place-items: center; padding: 0; border: 0; border-radius: 50%; background: var(--accent); color: #fff; box-shadow: 0 6px 18px rgb(32 49 58 / 20%); cursor: pointer; touch-action: manipulation; }
 .toolbar-button svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 3.1; stroke-linecap: round; stroke-linejoin: round; }
 .toolbar-button:active:not(:disabled) { background: #244e60; transform: scale(.96); }
