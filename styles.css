@@ -126,9 +126,9 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .toolbar-button svg { width: 38px; height: 38px; fill: none; stroke: currentColor; stroke-width: 3.1; stroke-linecap: round; stroke-linejoin: round; }
 .toolbar-button:active:not(:disabled) { background: #d5e0e3; transform: scale(.96); }
 .toolbar-button:disabled { opacity: 1; cursor: default; }
-.submit-shake { animation: sentence-shake 420ms ease-in-out; }
-@keyframes sentence-shake { 0%, 100% { transform: translateX(0); } 18% { transform: translateX(-7px); } 36% { transform: translateX(6px); } 54% { transform: translateX(-5px); } 72% { transform: translateX(4px); } 90% { transform: translateX(-2px); } }
-@media (prefers-reduced-motion: reduce) { .submit-shake { animation: none; } }
+.answer-shake { animation: answer-shake 420ms ease-in-out; }
+@keyframes answer-shake { 0%, 100% { transform: translateX(0); } 18% { transform: translateX(-7px); } 36% { transform: translateX(6px); } 54% { transform: translateX(-5px); } 72% { transform: translateX(4px); } 90% { transform: translateX(-2px); } }
+@media (prefers-reduced-motion: reduce) { .answer-shake { animation: none; } }
 
 .settings-card { align-self: center; width: min(100%, 500px); }
 .settings-back { display: inline-block; margin: 0 0 24px; color: #356477; text-decoration: none; }

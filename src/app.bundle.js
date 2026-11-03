@@ -58,7 +58,7 @@ function checkAnswer(expected, actual) {
 
 function createSession(questions, saved = null) {
   const items = Object.fromEntries(questions.map(({ id }) => [id, {
-    answer: '', status: 'unanswered', tokens: [],
+    answer: '', status: 'unanswered', tokens: [], retrying: false,
   }]));
   if (saved?.items) {
     for (const [id, value] of Object.entries(saved.items)) {
@@ -83,6 +83,18 @@ function submitAnswer(session, answer, questions) {
   }
 
   const result = checkAnswer(question.english, answer);
+  if (result.correct && (previous.retrying || previous.status === 'incorrect')) {
+    const atEnd = session.index === questions.length - 1;
+    return {
+      ...session,
+      index: atEnd ? session.index : session.index + 1,
+      complete: atEnd,
+      items: {
+        ...session.items,
+        [question.id]: { answer, status: 'correct', tokens: result.tokens, retrying: true },
+      },
+    };
+  }
   return {
     ...session,
     complete: false,
@@ -92,6 +104,7 @@ function submitAnswer(session, answer, questions) {
         answer,
         status: result.correct ? 'correct' : 'incorrect',
         tokens: result.tokens,
+        retrying: previous.retrying || previous.status === 'incorrect',
       },
     },
   };
@@ -107,7 +120,12 @@ function updateAnswer(session, answer, questions) {
     complete: false,
     items: {
       ...session.items,
-      [question.id]: { answer, status: 'unanswered', tokens: [] },
+      [question.id]: {
+        answer,
+        status: 'unanswered',
+        tokens: [],
+        retrying: previous.retrying || previous.status === 'incorrect',
+      },
     },
   };
 }
@@ -135,6 +153,66 @@ function getVoiceAudioPath(questionId, voiceId = 'am_echo') {
   return `output/audio/${folder}/${encodeURIComponent(questionId)}.wav`;
 }
 
+function createSentenceAudioPlayer({ createAudio, getAudioUrl }) {
+  const cache = new Map();
+  let run = 0;
+  let timer;
+  let currentAudio;
+
+  function audioFor(question) {
+    if (!cache.has(question.id)) {
+      const audio = createAudio(getAudioUrl(question));
+      audio.preload = 'auto';
+      audio.load();
+      cache.set(question.id, audio);
+    }
+    return cache.get(question.id);
+  }
+
+  function stop() {
+    run++;
+    clearTimeout(timer);
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0;
+      currentAudio = null;
+    }
+  }
+
+  function preload(question) {
+    if (question) audioFor(question);
+  }
+
+  function play(question, { repeat = 1, pause = 0, rate = 0.85, onError = () => {} } = {}) {
+    if (!question) return;
+    stop();
+    const playRun = run;
+    let played = 0;
+    const playNext = () => {
+      if (playRun !== run) return;
+      const audio = audioFor(question);
+      currentAudio = audio;
+      audio.currentTime = 0;
+      audio.playbackRate = rate;
+      audio.onended = () => {
+        if (playRun !== run) return;
+        played++;
+        if (played < repeat) timer = setTimeout(playNext, pause * 1000);
+        else currentAudio = null;
+      };
+      audio.onerror = () => {
+        if (playRun === run) onError();
+      };
+      audio.play().catch(() => {
+        if (playRun === run) onError();
+      });
+    };
+    playNext();
+  }
+
+  return { preload, play, stop };
+}
+
 const SESSION_KEY = 'sentence-trainer-session-v1';
 const SETTINGS_KEY = 'sentence-trainer-speech-v1';
 const HIDDEN_KEY = 'sentence-trainer-hidden-v1';
@@ -151,6 +229,7 @@ const referenceBlock = document.querySelector('#reference-block');
 const referenceText = document.querySelector('#reference-text');
 const answerInput = document.querySelector('#answer-input');
 const answerRender = document.querySelector('#answer-render');
+const answerPad = document.querySelector('.answer-pad');
 const toolbar = document.querySelector('#keyboard-toolbar');
 const message = document.querySelector('#live-message');
 const submitButton = document.querySelector('#submit-answer');
@@ -165,9 +244,10 @@ let session;
 let hiddenById = {};
 let editing = false;
 let submitLocked = false;
-let speechRun = 0;
-let speechTimer;
-let sentenceAudio;
+const sentencePlayer = createSentenceAudioPlayer({
+  createAudio: (url) => new Audio(url),
+  getAudioUrl: (question) => new URL(getVoiceAudioPath(question.id), document.baseURI),
+});
 let swipeStart = null;
 let swipeFinishedAt = 0;
 let dictionary = {};
@@ -239,6 +319,7 @@ function renderQuestion({ focusInput = false } = {}) {
   questionTotal.textContent = String(questions.length).padStart(2, '0');
   renderCatalog();
   const item = session.items[question.id];
+  sentencePlayer.preload(question);
   chinese.textContent = question.chinese;
   renderReferenceSentence(question.english);
   referenceText.classList.toggle('is-hidden', Boolean(hiddenById[question.id]));
@@ -430,42 +511,21 @@ function speechSettings() {
 }
 
 function stopSpeech() {
-  speechRun++;
-  clearTimeout(speechTimer);
-  if (sentenceAudio) {
-    sentenceAudio.pause();
-    sentenceAudio.currentTime = 0;
-    sentenceAudio = null;
-  }
+  sentencePlayer.stop();
 }
 
 function speakQuestion(question, repeatOverride = null) {
   if (!question) return;
-  stopSpeech();
-  const run = speechRun;
   const settings = speechSettings();
-  const voiceId = 'am_echo';
   const repeat = repeatOverride ?? ([1, 2, 3, 5].includes(Number(settings.repeat)) ? Number(settings.repeat) : 1);
   const pause = [0, 1, 2, 3].includes(Number(settings.pause)) ? Number(settings.pause) : 0;
   const rate = Math.min(1.5, Math.max(0.5, Number(settings.rate) || 0.85));
-  let played = 0;
-  const playNext = () => {
-    if (run !== speechRun) return;
-    const audio = new Audio(new URL(getVoiceAudioPath(question.id, voiceId), document.baseURI));
-    sentenceAudio = audio;
-    audio.playbackRate = rate;
-    audio.onended = () => {
-      played++;
-      if (played < repeat && run === speechRun) speechTimer = setTimeout(playNext, pause * 1000);
-    };
-    audio.onerror = () => {
-      if (run === speechRun) showMessage('所选音色的音频播放失败，请检查文件或重新点击播放。');
-    };
-    audio.play().catch(() => {
-      if (run === speechRun) showMessage('所选音色的音频播放失败，请重新点击播放。');
-    });
-  };
-  playNext();
+  sentencePlayer.play(question, {
+    repeat,
+    pause,
+    rate,
+    onError: () => showMessage('句子音频不可用，请确认本地音频文件完整后重试。'),
+  });
 }
 
 function speakCurrent() {
@@ -487,9 +547,9 @@ function submitCurrent() {
     const item = session.items[currentQuestion().id];
     renderAnswer(item);
     if (item.status === 'incorrect') {
-      referenceBlock.classList.remove('submit-shake');
-      void referenceBlock.offsetWidth;
-      referenceBlock.classList.add('submit-shake');
+      answerPad.classList.remove('answer-shake');
+      void answerPad.offsetWidth;
+      answerPad.classList.add('answer-shake');
     } else if (session.complete) {
       showMessage('已完成全部例句。');
     }
