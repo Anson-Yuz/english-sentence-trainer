@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>手机音频诊断 · 英语例句训练器</title><style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#20313a;background:#f4f7f8}*{box-sizing:border-box}body{max-width:680px;margin:auto;padding:28px 20px 40px}h1{font-size:26px;line-height:1.3;margin:12px 0}h2{font-size:18px}p{line-height:1.7}.muted{font-size:14px;color:#60727c}section{background:white;border:1px solid #dbe3e6;border-radius:16px;padding:18px;margin:18px 0}button{font:inherit;border:0;background:#356b80;color:white;border-radius:10px;padding:12px 16px;min-height:44px;cursor:pointer}button:disabled{opacity:.5}audio{display:block;width:100%;margin:16px 0}.result{font-size:14px;line-height:1.6;white-space:pre-wrap;overflow-wrap:anywhere}textarea{width:100%;height:220px;font:12px/1.5 ui-monospace,monospace;padding:10px;border:1px solid #dbe3e6;border-radius:10px;margin:14px 0}a{color:#356b80}.note{color:#a84238}
+</style></head><body>
+<a href="trainer.html">返回练习</a><h1>手机音频诊断</h1>
+<p>这里不下载完整离线包。请依次点击两种格式的播放按钮，也可使用下方原生播放器。</p><p class="muted">同一句话、同一音色，仅编码不同。诊断记录只留在本机，不会自动上传。版本：20261120-a</p>
+<section><h2>1 · 原始 WAV</h2><p class="muted">约 231 KB，24 kHz PCM</p><button type="button" data-play="wav">播放 WAV</button><audio id="audio-wav" controls playsinline preload="none" crossorigin="anonymous"></audio><p class="result" id="state-wav" role="status">尚未播放</p><a id="link-wav">直接打开 WAV 文件</a></section>
+<section><h2>2 · 压缩 AAC</h2><p class="muted">约 42 KB，44.1 kHz AAC-LC</p><button type="button" data-play="aac">播放 AAC</button><audio id="audio-aac" controls playsinline preload="none" crossorigin="anonymous"></audio><p class="result" id="state-aac" role="status">尚未播放</p><a id="link-aac">直接打开 AAC 文件</a></section>
+<section><h2>3 · 检查资源加载</h2><button type="button" id="probe">检查下载与分段响应</button><p class="result" id="probe-result" role="status">此检查约下载 274 KB；单次请求超过 10 秒会明确显示超时。</p></section>
+<section><h2>4 · 诊断结果</h2><p class="muted">请告诉我哪一种能听到声音；若都不能播放，可复制下面的诊断记录。</p><button type="button" id="copy-report">复制诊断记录</button><p id="copy-status" role="status"></p><textarea id="diagnostic-report" readonly aria-label="诊断记录"></textarea></section>
+<script src="src/audio-diagnostic.js?build=20261120-a"></script></body></html>
